@@ -23,6 +23,8 @@ The goal? **Tap 10 clean water drops to fill a virtual bucket before time runs o
 
 ---
 
+![alt text](image.png)
+
 ## Tech Stack
 
 - **HTML** – page structure and layout
