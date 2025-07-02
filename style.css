@@ -93,3 +93,24 @@ h1 {
 #charity-info a:hover {
   text-decoration: underline;
 }
+
+#bucket-container {
+  position: relative;
+  width: 100px;
+  height: 150px;
+  margin: 10px auto;
+  border: 3px solid #333;
+  border-radius: 5px 5px 0 0;
+  background-color: #ffffff;
+  overflow: hidden;
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+#water-level {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 0%;
+  background-color: #4FC3F7;
+  transition: height 0.3s ease-in-out;
+}

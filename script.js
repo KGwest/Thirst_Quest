@@ -1,20 +1,20 @@
 const gameArea = document.getElementById('game-area');
-const scoreDisplay = document.getElementById('score');
 const timerDisplay = document.getElementById('timer');
 const startBtn = document.getElementById('start-btn');
+const waterLevel = document.getElementById('water-level');
 
-let score = 0;
 let timeLeft = 30;
+let fillLevel = 0;
 let gameInterval;
 let dropInterval;
 
 function startGame() {
-  score = 0;
   timeLeft = 30;
-  scoreDisplay.innerText = `Score: ${score}`;
+  fillLevel = 0;
+  updateWaterLevel();
   timerDisplay.innerText = `Time: ${timeLeft}`;
   gameArea.innerHTML = '';
-  
+
   gameInterval = setInterval(updateTimer, 1000);
   dropInterval = setInterval(spawnDrop, 800);
 }
@@ -24,12 +24,9 @@ function updateTimer() {
     timeLeft--;
     timerDisplay.innerText = `Time: ${timeLeft}`;
   } else {
-    clearInterval(gameInterval);
-    clearInterval(dropInterval);
-    alert(`Game Over! Final Score: ${score}`);
+    endGame(false);
   }
 }
-
 
 function spawnDrop() {
   const drop = document.createElement('div');
@@ -44,20 +41,33 @@ function spawnDrop() {
 
   drop.addEventListener('click', () => {
     if (isClean) {
-      score += 10;
-    } else {
-      score -= 5;
+      fillLevel += 10;
+      if (fillLevel >= 100) {
+        fillLevel = 100;
+        updateWaterLevel();
+        endGame(true);
+      } else {
+        updateWaterLevel();
+      }
     }
-    scoreDisplay.innerText = `Score: ${score}`;
-    drop.remove(); // Remove after click
+    drop.remove();
   });
 
   gameArea.appendChild(drop);
 
-  // Auto-remove drops that reach the bottom
   setTimeout(() => {
     if (gameArea.contains(drop)) drop.remove();
   }, 3000);
+}
+
+function updateWaterLevel() {
+  waterLevel.style.height = `${fillLevel}%`;
+}
+
+function endGame(won) {
+  clearInterval(gameInterval);
+  clearInterval(dropInterval);
+  alert(won ? "You filled the bucket! You win! 🎉" : "Time’s up! Try again.");
 }
 
 startBtn.addEventListener('click', startGame);
