@@ -70,6 +70,13 @@ This project is intended for educational and nonprofit use. Please contact the t
 
 ---
 
+
+## Credits
+
+Created by Kezia West  
+In partnership with charity: water and the University of Texas at Arlington  
+Summer 2025 Global Career Accelerator
+
 ## How to Play Locally
 
 1. Clone or download the repo:
