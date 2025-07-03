@@ -43,9 +43,24 @@ thirst-quest-game/
 
 ---
 
-## Screenshots (optional)
+## Development Notes
 
-Include a screenshot or GIF of gameplay here if desired.
+This game was developed during the Summer 2025 Global Career Accelerator as part of a team project aimed at using technology for social impact. Our goal was to create an experience that makes the global water crisis more personal and memorable for young learners.
+
+---
+
+## Future Plans
+
+- Add voice narration and multilingual subtitles
+- Expand narrative branches and location diversity
+- Integrate player progress tracking or classroom use modules
+- Deploy on GitHub Pages for open access
+
+---
+
+## License
+
+This project is intended for educational and nonprofit use. Please contact the team before commercial use or adaptation.
 
 ---
 
