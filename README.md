@@ -5,7 +5,7 @@
 
 ---
 
-## 🌍 Overview
+## Overview
 
 **Thirst Quest** is a browser-based mini game created to support the mission of [charity: water](https://www.charitywater.org/), a nonprofit bringing clean and safe drinking water to people in developing countries. This interactive experience was developed as part of a college assignment to raise awareness and engage young people through game-based learning.
 
@@ -13,9 +13,9 @@ The goal? **Collect clean water drops to fill a virtual bucket before time runs 
 
 Alongside the game, an **interactive globe widget** visualizes charity: water’s real-world impact across the globe—from deep tube wells in Bangladesh to solar-powered systems in Nigeria—connecting gameplay to tangible outcomes.
 
----
+![image](https://github.com/user-attachments/assets/7f475e30-a5df-48b8-ac34-5278deda3276)
 
-## 🎮 Game Mechanics
+## Game Mechanics
 
 - **Tap or Click** the falling clean water drops (💧) to increase your score.
 - **Avoid contaminated drops** (🧪) which lower your progress and score.
@@ -26,7 +26,7 @@ Alongside the game, an **interactive globe widget** visualizes charity: water’
 
 ---
 
-## 🌐 Globe Widget – Real Impact
+## Globe Widget – Real Impact
 
 - Features an **interactive 3D globe** powered by `three.js` and `globe.gl`.
 - Click on yellow markers around the world to discover:
@@ -36,7 +36,7 @@ Alongside the game, an **interactive globe widget** visualizes charity: water’
 
 ---
 
-## 💻 Tech Stack
+## Tech Stack
 
 - **HTML** – page structure and layout
 - **CSS** – water tank animation, responsiveness, and styling
@@ -45,7 +45,7 @@ Alongside the game, an **interactive globe widget** visualizes charity: water’
 
 ---
 
-## 📁 Folder Structure
+## Folder Structure
 
 thirst-quest-game/
 ├── index.html # Main webpage
@@ -65,7 +65,7 @@ Incorporating map data, score logic, and mobile responsiveness was an opportunit
 
 ---
 
-## 📜 License
+## License
 
 This project is intended for **educational and nonprofit** use only. Please credit the author and charity: water if adapting. Commercial use requires permission.
 
@@ -79,7 +79,7 @@ Explore their work or support the mission: [charitywater.org](https://www.charit
 
 ---
 
-## 🙌 Credits
+## Credits
 
 Created by **Kezia Grace West**  
 In partnership with **charity: water** and the **University of Texas at Arlington**  
@@ -89,7 +89,7 @@ With love, purpose, and a hope for clean water for all. 💙
 
 ---
 
-## ▶️ How to Play Locally
+## How to Play Locally
 
 1. Clone or download the repository:
    ```bash
