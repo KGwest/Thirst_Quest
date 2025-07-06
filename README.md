@@ -43,9 +43,24 @@ thirst-quest-game/
 
 ---
 
-## Screenshots (optional)
+## Development Notes
 
-Include a screenshot or GIF of gameplay here if desired.
+This game was developed during the Summer 2025 Global Career Accelerator as part of a team project aimed at using technology for social impact. Our goal was to create an experience that makes the global water crisis more personal and memorable for young learners.
+
+---
+
+## Future Plans
+
+- Add voice narration and multilingual subtitles
+- Expand narrative branches and location diversity
+- Integrate player progress tracking or classroom use modules
+- Deploy on GitHub Pages for open access
+
+---
+
+## License
+
+This project is intended for educational and nonprofit use. Please contact the team before commercial use or adaptation.
 
 ---
 
@@ -54,6 +69,13 @@ Include a screenshot or GIF of gameplay here if desired.
 > charity: water is a nonprofit organization on a mission to bring clean and safe drinking water to people in developing countries. Since 2006, they've funded more than 111,000 water projects that will serve over 15 million people. Learn more or donate at [charitywater.org](https://www.charitywater.org).
 
 ---
+
+
+## Credits
+
+Created by Kezia West  
+In partnership with charity: water and the University of Texas at Arlington  
+Summer 2025 Global Career Accelerator
 
 ## How to Play Locally
 
