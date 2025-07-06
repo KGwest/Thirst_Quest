@@ -75,17 +75,29 @@ function updateWaterLevel() {
 function endGame(won) {
   clearInterval(gameInterval);
   clearInterval(dropInterval);
+
   if (won) {
     confetti({
       particleCount: 150,
       spread: 70,
       origin: { y: 0.6 },
     });
-    alert("You filled the bucket! You win! 🎉");
+
+    alert(
+      "🎉 You filled the bucket!\n\nYour effort reflects real change: In rural Bangladesh, access to clean water is a daily struggle. " +
+      "Many communities lack proper sanitation, and contaminated sources lead to widespread disease.\n\n" +
+      "But thanks to supporters like you, charity: water is installing deep tube wells connected to piped systems—bringing clean, life-saving water to families who need it most.\n\n" +
+      "Want to make a difference in real life too?\n💛 Donate at: https://www.charitywater.org/donate"
+    );
   } else {
-    alert("Time’s up! Try again.");
+    alert(
+      "⏳ Time’s up!\n\nYou didn’t fill the bucket this round, but the mission continues. charity: water hasn’t given up—neither should you.\n\n" +
+      "💡 In Uganda, they’re restoring broken wells and empowering local teams to keep clean water flowing.\n\n" +
+      "Tap Start to try again and be part of the impact."
+    );
   }
 }
+
 
 
 startBtn.addEventListener('click', startGame);
