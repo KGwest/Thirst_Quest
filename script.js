@@ -31,27 +31,35 @@ function updateTimer() {
 function spawnDrop() {
   const drop = document.createElement('div');
   drop.classList.add('drop');
+const isClean = Math.random() > 0.3;
+drop.innerText = isClean ? '💧' : '☠️';
+drop.classList.add(isClean ? 'clean-drop' : 'bad-drop');
 
-  const isClean = Math.random() > 0.3;
-  drop.classList.add(isClean ? 'clean' : 'bad');
-  drop.innerText = isClean ? '💧' : '☠️';
 
   const pos = Math.random() * (gameArea.clientWidth - 40);
   drop.style.left = `${pos}px`;
 
-  drop.addEventListener('click', () => {
-    if (isClean) {
-      fillLevel += 10;
-      if (fillLevel >= 100) {
-        fillLevel = 100;
-        updateWaterLevel();
-        endGame(true);
-      } else {
-        updateWaterLevel();
-      }
+drop.addEventListener('click', () => {
+  if (isClean) {
+    fillLevel += 10;
+    if (fillLevel >= 100) {
+      fillLevel = 100;
+      updateWaterLevel();
+      endGame(true);
+    } else {
+      updateWaterLevel();
     }
-    drop.remove();
-  });
+  } else {
+    // Penalize for bad drop
+    fillLevel -= 5;
+    if (fillLevel < 0) fillLevel = 0;
+    updateWaterLevel();
+    drop.classList.add('penalty'); // Optional red flash
+    setTimeout(() => drop.classList.remove('penalty'), 200);
+  }
+  drop.remove();
+});
+
 
   gameArea.appendChild(drop);
 
@@ -67,7 +75,23 @@ function updateWaterLevel() {
 function endGame(won) {
   clearInterval(gameInterval);
   clearInterval(dropInterval);
-  alert(won ? "You filled the bucket! You win! 🎉" : "Time’s up! Try again.");
+  if (won) {
+    confetti({
+      particleCount: 150,
+      spread: 70,
+      origin: { y: 0.6 },
+    });
+    alert("You filled the bucket! You win! 🎉");
+  } else {
+    alert("Time’s up! Try again.");
+  }
 }
 
+
 startBtn.addEventListener('click', startGame);
+
+document.getElementById('reset-btn').addEventListener('click', () => {
+  clearInterval(gameInterval);
+  clearInterval(dropInterval);
+  startGame(); // resets everything
+});
