@@ -1,84 +1,96 @@
 # 💧 Thirst Quest – A charity: water Mini Game
 
 **Author:** Kezia Grace West  
-**Repo:** `thirst-quest-game`
+**Repo:** `thirst_quest`
 
 ---
 
-## Overview
+## 🌍 Overview
 
-**Thirst Quest** is a browser-based mini game created to support the mission of [charity: water](https://www.charitywater.org/), a nonprofit bringing clean and safe drinking water to people in developing countries. This project was developed as part of a college assignment to raise awareness and engage young people through interactive design.
+**Thirst Quest** is a browser-based mini game created to support the mission of [charity: water](https://www.charitywater.org/), a nonprofit bringing clean and safe drinking water to people in developing countries. This interactive experience was developed as part of a college assignment to raise awareness and engage young people through game-based learning.
 
-The goal? **Tap 10 clean water drops to fill a virtual bucket before time runs out.**
+The goal? **Collect clean water drops to fill a virtual bucket before time runs out.**
 
----
-
-## Game Mechanics
-
-- **Click/Tap** clean water drops (💧) as they fall.
-- **Avoid polluted drops** — they don't help your progress!
-- Each clean drop increases the water level in your bucket by 10%.
-- Fill the bucket to 100% before the 30-second timer ends to win!
-- If you succeed, you get a celebratory message. Otherwise, you're encouraged to try again.
+Alongside the game, an **interactive globe widget** visualizes charity: water’s real-world impact across the globe—from deep tube wells in Bangladesh to solar-powered systems in Nigeria—connecting gameplay to tangible outcomes.
 
 ---
 
-![alt text](image.png)
+## 🎮 Game Mechanics
 
-## Tech Stack
+- **Tap or Click** the falling clean water drops (💧) to increase your score.
+- **Avoid contaminated drops** (🧪) which lower your progress and score.
+- Each clean drop increases the water level by **5%**.
+- Score 20 successful taps to fill the bucket and win within **30 seconds**.
+- A win reveals a real-world water project powered by charity: water.
+- Touch-compatible (in progress): optimized for both desktop and mobile play.
+
+---
+
+## 🌐 Globe Widget – Real Impact
+
+- Features an **interactive 3D globe** powered by `three.js` and `globe.gl`.
+- Click on yellow markers around the world to discover:
+  - Charity: water’s projects (e.g., well restoration, rainwater harvesting, filtration)
+  - Short write-ups about the real-world impact
+  - Direct links to [donate](https://www.charitywater.org/donate)
+
+---
+
+## 💻 Tech Stack
 
 - **HTML** – page structure and layout
-- **CSS** – styling, animations, and water tank design
-- **JavaScript** – falling objects, interaction logic, game timer, and win/loss logic
+- **CSS** – water tank animation, responsiveness, and styling
+- **JavaScript** – game logic, drop spawns, win conditions, and globe interactivity
+- **Three.js + Globe.gl** – for rendering an interactive Earth model with live markers
 
 ---
 
-## Folder Structure
+## 📁 Folder Structure
 
 thirst-quest-game/
-├── index.html # Main game file
-├── style.css # Game styling and animations
-├── script.js # Game logic (drops, timer, interactions)
+├── index.html # Main webpage
+├── style.css # Game and site styling
+├── script.js # Game logic and interactions
+├── globe.js # Globe widget data and rendering
 └── README.md # Project documentation
 
----
-
-## Development Notes
-
-This game was developed during the Summer 2025 Global Career Accelerator as part of a team project aimed at using technology for social impact. Our goal was to create an experience that makes the global water crisis more personal and memorable for young learners.
 
 ---
 
-## Future Plans
+## 🛠️ Development Notes
 
-- Add voice narration and multilingual subtitles
-- Expand narrative branches and location diversity
-- Integrate player progress tracking or classroom use modules
-- Deploy on GitHub Pages for open access
+This game was developed during the **Summer 2025 Global Career Accelerator** at the University of Texas at Arlington. The goal: make global water issues **personal and interactive**, bridging game design with real nonprofit impact.
 
----
-
-## License
-
-This project is intended for educational and nonprofit use. Please contact the team before commercial use or adaptation.
+Incorporating map data, score logic, and mobile responsiveness was an opportunity to practice UX empathy and connect user experience to real-world missions.
 
 ---
 
-## About charity: water
+## 📜 License
 
-> charity: water is a nonprofit organization on a mission to bring clean and safe drinking water to people in developing countries. Since 2006, they've funded more than 111,000 water projects that will serve over 15 million people. Learn more or donate at [charitywater.org](https://www.charitywater.org).
+This project is intended for **educational and nonprofit** use only. Please credit the author and charity: water if adapting. Commercial use requires permission.
 
 ---
 
+## 🤝 About charity: water
 
-## Credits
+> charity: water is a nonprofit organization on a mission to bring clean and safe drinking water to people in developing countries. Since 2006, they've funded more than 111,000 water projects serving over 15 million people.
 
-Created by Kezia West  
-In partnership with charity: water and the University of Texas at Arlington  
-Summer 2025 Global Career Accelerator
+Explore their work or support the mission: [charitywater.org](https://www.charitywater.org)
 
-## How to Play Locally
+---
 
-1. Clone or download the repo:
+## 🙌 Credits
+
+Created by **Kezia Grace West**  
+In partnership with **charity: water** and the **University of Texas at Arlington**  
+As part of the **Summer 2025 Global Career Accelerator**
+
+With love, purpose, and a hope for clean water for all. 💙
+
+---
+
+## ▶️ How to Play Locally
+
+1. Clone or download the repository:
    ```bash
-   git clone https://github.com/KGwest/Thirst_Quest
+   git clone https://github.com/KGwest/thirst-quest-game
