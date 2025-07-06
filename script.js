@@ -8,8 +8,12 @@ let fillLevel = 0;
 let gameInterval;
 let dropInterval;
 let gameEnded = false;
+let score = 0;
+const scoreDisplay = document.getElementById("score");
 
 function startGame() {
+  score = 0;
+  scoreDisplay.innerText = `Score: ${score}`;
   timeLeft = 30;
   fillLevel = 0;
   gameEnded = false; // <-- reset game state
@@ -34,17 +38,20 @@ function spawnDrop() {
   const drop = document.createElement("div");
   drop.classList.add("drop");
   const isClean = Math.random() > 0.3;
-  drop.innerText = isClean ? "💧" : "☠️";
+  drop.innerText = isClean ? "💧" : "🧪";
   drop.classList.add(isClean ? "clean-drop" : "bad-drop");
 
   const pos = Math.random() * (gameArea.clientWidth - 40);
   drop.style.left = `${pos}px`;
 
+  // ✅ Remove the extra 'const drop = ...' inside this block
   drop.addEventListener("click", () => {
     if (gameEnded) return;
 
     if (isClean) {
-      fillLevel += 10;
+      score++;
+      scoreDisplay.innerText = `Score: ${score}`;
+      fillLevel += 5;
       if (fillLevel >= 100) {
         fillLevel = 100;
         updateWaterLevel();
@@ -53,14 +60,16 @@ function spawnDrop() {
         updateWaterLevel();
       }
     } else {
-      fillLevel -= 5;
+      fillLevel -= 2.5;
       if (fillLevel < 0) fillLevel = 0;
+      score = Math.max(0, score - 1); // ✅ decrease score but not below 0
+      scoreDisplay.innerText = `Score: ${score}`;
       updateWaterLevel();
       drop.classList.add("penalty");
       setTimeout(() => drop.classList.remove("penalty"), 200);
     }
 
-    drop.remove();
+    drop.remove(); // ✅ Now this works correctly
   });
 
   gameArea.appendChild(drop);
@@ -75,36 +84,44 @@ function updateWaterLevel() {
 }
 
 function endGame(won) {
-  if (gameEnded) return; // prevents multiple triggers
+  if (gameEnded) return;
   gameEnded = true;
 
   clearInterval(gameInterval);
   clearInterval(dropInterval);
 
+  const overlay = document.getElementById("overlay");
+  const title = document.getElementById("overlay-title");
+  const text = document.getElementById("overlay-text");
+  const link = document.getElementById("overlay-link");
+
   if (won) {
+    // Moved these OUTSIDE of confetti()
+    waterLevel.style.transition = "height 1s ease";
+    waterLevel.style.height = "100%";
+
     confetti({
       particleCount: 150,
       spread: 70,
       origin: { y: 0.6 },
     });
 
-    setTimeout(() => {
-      alert(
-        "🎉 You filled the bucket!\n\nYour effort reflects real change: In rural Bangladesh, access to clean water is a daily struggle. " +
-          "Many communities lack proper sanitation, and contaminated sources lead to widespread disease.\n\n" +
-          "But thanks to supporters like you, charity: water is installing deep tube wells connected to piped systems—bringing clean, life-saving water to families who need it most.\n\n" +
-          "💛 Donate: https://www.charitywater.org/donate"
-      );
-    }, 500);
+    title.innerText = "🎉 You filled the bucket!";
+    text.innerText =
+      "In rural Bangladesh, many communities struggle daily for clean water. But thanks to efforts like yours, charity: water is installing deep tube wells that bring lasting change.";
+    link.href = "https://www.charitywater.org/donate";
   } else {
-    setTimeout(() => {
-      alert(
-        "⏳ Time’s up!\n\nYou didn’t fill the bucket this round, but the mission continues. charity: water hasn’t given up—neither should you.\n\n" +
-          "💡 In Uganda, they’re restoring broken wells and empowering local teams to keep clean water flowing.\n\n" +
-          "Tap Start to try again and be part of the impact."
-      );
-    }, 200);
+    title.innerText = "⏳ Time’s up!";
+    text.innerText =
+      "You didn’t fill the bucket this round, but the mission continues. In Uganda, charity: water is restoring broken wells to keep clean water flowing.";
+    link.href = "https://www.charitywater.org/donate";
   }
+
+  overlay.classList.remove("hidden");
+}
+
+function closeOverlay() {
+  document.getElementById("overlay").classList.add("hidden");
 }
 
 startBtn.addEventListener("click", startGame);

@@ -1,46 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Thirst Quest | charity: water Game</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thirst Quest | charity: water Game</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  </head>
+  <body>
+    <nav id="main-nav">
+      <ul>
+        <li><a href="#game">Game</a></li>
+        <li><a href="#impact-globe">Global Impact</a></li>
+        <li><a href="#charity-info">About</a></li>
+      </ul>
+    </nav>
+    <div id="game">
+      <h1>💧 Thirst Quest</h1>
+      <p class="subtitle">Tap the clean water drops to help communities!</p>
 
-</head>
-<body>
-  <div id="game">
-    <h1>💧 Thirst Quest</h1>
-    <p class="subtitle">Tap the clean water drops to help communities!</p>
+      <div id="scoreboard">
+        <span id="score">Score: 0</span>
+        <span id="timer">Time: 30</span>
+      </div>
 
-    <div id="scoreboard">
-      <span id="score">Score: 0</span>
-      <span id="timer">Time: 30</span>
+      <div id="bucket-container">
+        <div id="water-level"></div>
+      </div>
+
+      <div id="game-area"></div>
+
+      <button id="start-btn">Start Game</button>
     </div>
 
-    <div id="bucket-container">
-  <div id="water-level"></div>
-</div>
+    <button id="reset-btn">Reset Game</button>
 
-    <div id="game-area"></div>
+    <div id="overlay" class="overlay hidden">
+      <div class="modal">
+        <h2 id="overlay-title"></h2>
+        <p id="overlay-text"></p>
+        <a id="overlay-link" href="#" target="_blank" rel="noopener noreferrer"
+          >💛 Donate</a
+        >
+        <br />
+        <button onclick="closeOverlay()">Close</button>
+      </div>
+    </div>
 
-    <button id="start-btn">Start Game</button>
-  </div>
+    <section id="impact-globe">
+      <h2>🌍 charity: water’s Global Reach</h2>
+      <p>Explore where clean water is changing lives across the globe.</p>
+      <p class="instructions">
+        Tap or hover over the glowing markers to learn how charity: water is
+        transforming lives in each region. Click links to explore projects.
+      </p>
+      <div id="globeViz" style="width: 100%; height: 600px"></div>
+    </section>
 
-  <button id="reset-btn">Reset Game</button>
+    <div id="charity-info">
+      <p>
+        <strong>About charity: water:</strong>
+        charity: water is a nonprofit organization bringing clean and safe
+        drinking water to people in developing countries. Since 2006, they’ve
+        funded over 111,000 water projects that serve more than 15 million
+        people across 29 countries.
+      </p>
+      <p>
+        Learn more or get involved by visiting
+        <a
+          href="https://www.charitywater.org"
+          target="_blank"
+          rel="noopener noreferrer"
+          >charitywater.org</a
+        >
+      </p>
+    </div>
 
+    <!-- Globe.gl + Three.js + Game JS-->
+    <script src="https://unpkg.com/three"></script>
+    <script src="https://unpkg.com/globe.gl"></script>
+    <script src="script.js" defer></script>
+    <script src="globe-setup.js"></script>
 
-  <div id="charity-info">
+<footer id="site-footer">
+  <p>Made with ❤️ by Kezia West as a student project inspired by charity: water.</p>
   <p>
-    <strong>About charity: water:</strong> 
-    charity: water is a nonprofit organization bringing clean and safe drinking water to people in developing countries. Since 2006, they’ve funded over 111,000 water projects that serve more than 15 million people across 29 countries.
+    All rights to the logo and brand belong to 
+    <a href="https://www.charitywater.org" target="_blank" rel="noopener noreferrer">charity: water</a>.
   </p>
-  <p>
-    Learn more or get involved by visiting 
-    <a href="https://www.charitywater.org" target="_blank" rel="noopener noreferrer">charitywater.org</a>
-  </p>
-</div>
-
-  <script src="script.js"></script>
-</body>
+</footer>
+  </body>
 </html>
