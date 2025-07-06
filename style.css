@@ -86,13 +86,28 @@ h1 {
 }
 
 #charity-info {
-  max-width: 600px;
-  margin: 30px auto 0;
-  padding: 15px;
-  background-color: #ffd800;
-  border-radius: 8px;
-  font-size: 1em;
-  color: #3f2222;
+ background-color: #f8d805;
+  padding: 2rem;
+  border-radius: 10px;
+  color: #000;
+  font-size: 1rem;
+  max-width: 800px;
+  margin: 2rem auto;
+  line-height: 1.6;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+.learn-more-link {
+  display: inline-block;
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #0056d2;
+  text-decoration: none;
+}
+
+.learn-more-link:hover {
+  text-decoration: underline;
 }
 
 #charity-info a {

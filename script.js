@@ -35,8 +35,11 @@ function updateTimer() {
 }
 
 function spawnDrop() {
+  if (gameEnded) return;
+
   const drop = document.createElement("div");
   drop.classList.add("drop");
+
   const isClean = Math.random() > 0.3;
   drop.innerText = isClean ? "💧" : "🧪";
   drop.classList.add(isClean ? "clean-drop" : "bad-drop");
@@ -44,8 +47,8 @@ function spawnDrop() {
   const pos = Math.random() * (gameArea.clientWidth - 40);
   drop.style.left = `${pos}px`;
 
-  // ✅ Remove the extra 'const drop = ...' inside this block
-  drop.addEventListener("click", () => {
+  function handleDrop(e) {
+    e.preventDefault(); // helps avoid double fire on mobile
     if (gameEnded) return;
 
     if (isClean) {
@@ -62,15 +65,19 @@ function spawnDrop() {
     } else {
       fillLevel -= 2.5;
       if (fillLevel < 0) fillLevel = 0;
-      score = Math.max(0, score - 1); // ✅ decrease score but not below 0
+      score = Math.max(0, score - 1);
       scoreDisplay.innerText = `Score: ${score}`;
       updateWaterLevel();
       drop.classList.add("penalty");
       setTimeout(() => drop.classList.remove("penalty"), 200);
     }
 
-    drop.remove(); // ✅ Now this works correctly
-  });
+    drop.remove();
+  }
+
+  // Both click and touch support
+  drop.addEventListener("click", handleDrop);
+  drop.addEventListener("touchstart", handleDrop);
 
   gameArea.appendChild(drop);
 
@@ -78,6 +85,7 @@ function spawnDrop() {
     if (gameArea.contains(drop)) drop.remove();
   }, 3000);
 }
+
 
 function updateWaterLevel() {
   waterLevel.style.height = `${fillLevel}%`;

@@ -20,4 +20,7 @@ const waterImpactPoints = [
 ];
 
 globe.pointsData(waterImpactPoints);
-
+globe.pointOfView({ lat: 0, lng: 0, altitude: 2 });
+globe.labelsData(data)
+  .labelSize(2.5) // try bumping this to 4 or more
+  .labelDotRadius(0.8); // make the clickable area easier to tap
